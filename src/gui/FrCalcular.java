@@ -1,6 +1,9 @@
 /* @author Arma X */
 package gui;
+
 import classes.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FrCalcular extends javax.swing.JFrame {
 
@@ -182,36 +185,49 @@ public class FrCalcular extends javax.swing.JFrame {
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         String lerX1 = edtX1.getText();
         double x1 = Double.parseDouble(lerX1);
-        
+
         String lerY1 = edtY1.getText();
         double y1 = Double.parseDouble(lerY1);
-        
+
         String lerX2 = edtX2.getText();
         double x2 = Double.parseDouble(lerX2);
-        
+
         String lerY2 = edtY2.getText();
         double y2 = Double.parseDouble(lerY2);
-        
+
         String lerX3 = edtX3.getText();
         double x3 = Double.parseDouble(lerX3);
-        
+
         String lerY3 = edtY3.getText();
         double y3 = Double.parseDouble(lerY3);
-        
+
         Ponto p1 = new Ponto(x1, y1);
         Ponto p2 = new Ponto(x2, y2);
         Ponto p3 = new Ponto(x3, y3);
         
-        String colinear = (p1.isColinear(p2, p3) == true ) ? "é Colinear" : "Não é colinear";
-        String resultado = "Area: "+ p1.area(p2, p3) +
-                "\nDeterminante: "+ p1.determinante(p2, p3) +
-                "\nDistancia Ponto 1 a 2: "+ p1.distancia(p2) +
-                "\nDistancia Ponto 1 a 3: "+ p1.distancia(p3) +
-                "\nDistancia Ponto 2 a 3: "+ p2.distancia(p3) +
-                "\n"+ colinear;
+        Triangulo t;
+        
+        // Como foi feito o tratamento de pontos inválidos na instanciação do triângulo com exceções,
+        // temos que proteger o código de cálculo dos parâmetros do triângulo com as cláusulas try e catch
+
+        try {
+
+            t = new Triangulo(p1, p2, p3);
+
+            String resultado = t.imprimir();
+            edtResultado.setText(resultado);
+
+        } catch (Exception ex) {
+            Logger.getLogger(FrCalcular.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        /*
+        t = new Triangulo(p1, p2, p3);
+        String resultado = t.imprimir();
         edtResultado.setText(resultado);
+         */
     }//GEN-LAST:event_btnCalcularActionPerformed
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JTextArea edtResultado;

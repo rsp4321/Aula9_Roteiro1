@@ -36,30 +36,30 @@ public class Ponto {
         return dist;
     }
 
-    public double determinante(Ponto pb, Ponto pc) {
-        
-        double diagPrinc = this.x * pb.getY() * 1 + this.y * 1 * pc.getX() + 1 * pb.getX() * pc.getY();
-        double diagSec = 1 * pb.getY() * pc.getX() + this.x * 1 * pc.getY() + this.y * pb.getX() * 1;
-        double det = diagPrinc - diagSec;
-        return det;
+    /*public double determinante(Ponto pb, Ponto pc) {
+    
+    double diagPrinc = this.x * pb.getY() * 1 + this.y * 1 * pc.getX() + 1 * pb.getX() * pc.getY();
+    double diagSec = 1 * pb.getY() * pc.getX() + this.x * 1 * pc.getY() + this.y * pb.getX() * 1;
+    double det = diagPrinc - diagSec;
+    return det;
     }
-
+    
     public boolean isColinear(Ponto pb, Ponto pc) {
-        if (this.determinante(pb, pc) == 0) {
-            return true;
-        } else {
-            return false;
-        }
+    if (this.determinante(pb, pc) == 0) {
+    return true;
+    } else {
+    return false;
     }
-
+    }
+    
     public double area(Ponto pb, Ponto pc) {
-        if (this.isColinear(pb, pc)) {
-            return 0.0;
-        } else {
-            return Math.abs(this.determinante(pb, pc) / 2.0);
-        }
-
+    if (this.isColinear(pb, pc)) {
+    return 0.0;
+    } else {
+    return Math.abs(this.determinante(pb, pc) / 2.0);
     }
+    
+    }*/
 
     public double getX() {
         return x;
