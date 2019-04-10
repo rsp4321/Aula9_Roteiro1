@@ -264,19 +264,19 @@ public class FrCalcular extends javax.swing.JFrame {
         String lerX4 = edtX4.getText();
         double x4 = 0;
         
-        boolean ponto4_vazio = false;
+        boolean ponto4_vazio = true;
 
         if (!lerX4.equals("")) {            // Verificando se o campo não está vazio
             x4 = Double.parseDouble(lerX4);
-            ponto4_vazio = true;            // Definindo um flag para informar que se trata de um triângulo
+            ponto4_vazio = false;            // Definindo um flag para informar que se trata de um triângulo
         }
 
         String lerY4 = edtY4.getText();
         double y4 = 0;
 
-        if (lerY4.equals("")) {
+        if (!lerY4.equals("")) {
             y4 = Double.parseDouble(lerY4);
-            ponto4_vazio = true;            // Estratégia idem à linha 271
+            ponto4_vazio = false;            // Estratégia idem à linha 271
         }
 
         Ponto p1 = new Ponto(x1, y1);
